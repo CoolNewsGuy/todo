@@ -10,3 +10,10 @@ body {
     display: grid;
     place-content: center;
 }
+
+.todos-container {
+    width: 400px;
+    min-height: 500px;
+    background: white;
+    border-radius: 7px;
+}
