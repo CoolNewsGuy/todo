@@ -63,3 +63,39 @@ body {
 .todo-checked {
     background: rgb(0, 153, 255);
 }
+
+/* form */
+form {
+    width: 500px;
+    display: flex;
+}
+
+form input,
+form button {
+    height: 45px;
+}
+
+input.new-task-text {
+    border: none;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 10px;
+    width: 90%;
+    font-size: 1.2em;
+    outline: none;
+}
+
+form button {
+    border: none;
+    color: #fff;
+    background: rgb(214, 112, 214);
+    position: relative;
+    font-size: 1.2em;
+    padding-inline: 20px;
+    padding-block: 8px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+}
