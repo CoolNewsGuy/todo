@@ -28,7 +28,35 @@ body {
     color: #fff;
     width: 96%;
     padding-block: 15px;
-    padding-left: 15px;
     font-size: 1.1em;
     border-radius: 5px;
+    padding-inline: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-checkbox {
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4px;
+}
+
+.check-mark {
+    border: solid #fff;
+    border-top: none;
+    border-left: none;
+    border-width: 3px;
+    width: 7px;
+    height: 15px;
+    transform: rotate(35deg);
+}
+
+.todo-checked {
+    background: rgb(0, 153, 255);
 }
