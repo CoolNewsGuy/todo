@@ -71,10 +71,17 @@ form {
 
 form .new-task {
     display: flex;
+    border: 2px solid transparent;
+}
+
+form .new-task:focus-within {
+    outline: 3px solid rgb(214, 112, 214);
+    border-radius: 10px;
 }
 
 form .no-task-error {
     text-align: center;
+    margin-top: 2px;
 }
 
 .hidden {
