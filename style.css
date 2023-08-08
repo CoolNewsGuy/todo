@@ -67,6 +67,9 @@ body {
 /* form */
 form {
     width: 500px;
+}
+
+form .new-task {
     display: flex;
 }
 
