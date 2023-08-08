@@ -7,7 +7,9 @@ const todosContainer = document.querySelector(".todos-container");
 
 addBtn.addEventListener("click", addTask);
 
-function addTask() {
+function addTask(e) {
+    e.preventDefault();
+
     if (newTaskTextInput.value === "") {
         noTaskErrorElement.classList.remove("hidden");
         noTaskErrorElement.classList.add("visible");
