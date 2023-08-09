@@ -1,4 +1,5 @@
 import { UIUpdater } from "../DOM.js";
+import { addTodo, removeTodo, removedTodosDivs } from "../script.js";
 
 export default function Todo(todoText) {
     const todoDiv = document.createElement("div");
@@ -16,10 +17,13 @@ export default function Todo(todoText) {
             todoCheckboxDiv.classList.add("todo-checked");
             UIUpdater.todosContainer.removeChild(todoDiv);
             UIUpdater.removedTodosContainer.append(todoDiv);
+            removeTodo(todoDiv);
             return;
         }
 
         todoCheckboxDiv.classList.remove("todo-checked");
+        removedTodosDivs.splice(removedTodosDivs.indexOf(todoDiv), 1);
+        addTodo(todoDiv);
         UIUpdater.removedTodosContainer.removeChild(todoDiv);
         UIUpdater.todosContainer.append(todoDiv);
     });
