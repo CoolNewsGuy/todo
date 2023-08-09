@@ -1,7 +1,7 @@
 import "./DOM.js";
 
-export let todos = [];
+export let todosDivs = [];
 
-export function addTodo(todoText) {
-    todos.push(todoText);
+export function addTodo(todoDiv) {
+    todosDivs.push(todoDiv);
 }

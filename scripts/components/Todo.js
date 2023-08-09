@@ -1,5 +1,4 @@
 import { UIUpdater } from "../DOM.js";
-import { todos } from "../script.js";
 
 export default function Todo(todoText) {
     const todoDiv = document.createElement("div");

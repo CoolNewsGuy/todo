@@ -1,5 +1,5 @@
 import Todo from "./components/Todo.js";
-import { addTodo, todos } from "./script.js";
+import { addTodo, todosDivs } from "./script.js";
 
 export const UIUpdater = (() => {
     let todosContainer = document.querySelector(".todos-container");
@@ -15,8 +15,8 @@ export const UIUpdater = (() => {
     function refreshTodosContainer() {
         todosContainer.innerHTML = "";
 
-        todos.forEach((todo) => {
-            todosContainer.append(Todo(todo));
+        todosDivs.forEach((todoDiv) => {
+            todosContainer.append(todoDiv);
         });
     }
 
@@ -32,8 +32,8 @@ export const UIUpdater = (() => {
         noTodoErrorElement.classList.remove("visible");
         noTodoErrorElement.classList.add("hidden");
 
-        addTodo(todoTextInput.value);
-        todosContainer.append(Todo(todos[todos.length - 1]));
+        addTodo(Todo(todoTextInput.value));
+        todosContainer.append(todosDivs[todosDivs.length - 1]);
 
         todoTextInput.value = "";
     }
