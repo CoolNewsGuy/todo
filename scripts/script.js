@@ -17,14 +17,14 @@ export function removeTodoFromTodosDivs(todoDiv) {
 
 function storeTodosInLocalStorage() {
     localStorage.setItem(
-        "todosDivs",
+        "todosTexts",
         JSON.stringify(todosDivs.map((div) => div.querySelector("p").innerText))
     );
 }
 
 function storeRemovedTodosInLocalStorage() {
     localStorage.setItem(
-        "removedTodosDivs",
+        "removedTodosTexts",
         JSON.stringify(
             removedTodosDivs.map((div) => div.querySelector("p").innerText)
         )
