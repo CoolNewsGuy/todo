@@ -15,7 +15,8 @@ body {
     position: relative;
 }
 
-.todos-container {
+.todos-container,
+.removed-todos-container {
     width: 500px;
     height: 500px;
     background: white;
@@ -28,8 +29,30 @@ body {
     overflow-y: scroll;
 }
 
-.todos-container::-webkit-scrollbar {
+.todos-container::-webkit-scrollbar,
+.removed-todos-container::-webkit-scrollbar {
     display: none;
+}
+
+.removed-todos-container {
+    width: 400px;
+}
+
+.triangle {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 20px 15px;
+    border-color: transparent transparent #fff transparent;
+    position: relative;
+    left: 87%;
+}
+
+.trash-bin {
+    position: absolute;
+    top: 60px;
+    right: 15px;
 }
 
 .todo {
