@@ -1,5 +1,10 @@
 import Todo from "./components/Todo.js";
-import { addTodo, todosDivs } from "./script.js";
+import {
+    addTodoToTodosDivs,
+    removeTodoFromTodosDivs,
+    removedTodosDivs,
+    todosDivs,
+} from "./script.js";
 
 export const UIUpdater = (() => {
     let todosContainer = document.querySelector(".todos-container");
@@ -20,6 +25,31 @@ export const UIUpdater = (() => {
         });
     }
 
+    function removeTodoFromTodosContainer(event) {
+        let todoCheckboxDiv = event.target.closest(".todo-checkbox");
+        let todoDiv = todoCheckboxDiv.closest(".todo");
+
+        console.log(todoDiv);
+        console.log(todoCheckboxDiv);
+
+        todoCheckboxDiv.classList.add("todo-checked");
+        UIUpdater.todosContainer.removeChild(todoDiv);
+        UIUpdater.removedTodosContainer.append(todoDiv);
+        removeTodoFromTodosDivs(todoDiv);
+        return;
+    }
+
+    function addTodoFromDeletedTodos(event) {
+        let todoCheckboxDiv = event.target.closest(".todo-checkbox");
+        let todoDiv = todoCheckboxDiv.closest(".todo");
+
+        todoCheckboxDiv.classList.remove("todo-checked");
+        removedTodosDivs.splice(removedTodosDivs.indexOf(todoDiv), 1);
+        addTodoToTodosDivs(todoDiv);
+        UIUpdater.removedTodosContainer.removeChild(todoDiv);
+        UIUpdater.todosContainer.append(todoDiv);
+    }
+
     function __addToTodosContainer(e) {
         e.preventDefault();
 
@@ -32,7 +62,7 @@ export const UIUpdater = (() => {
         noTodoErrorElement.classList.remove("visible");
         noTodoErrorElement.classList.add("hidden");
 
-        addTodo(Todo(todoTextInput.value));
+        addTodoToTodosDivs(Todo(todoTextInput.value));
         todosContainer.append(todosDivs[todosDivs.length - 1]);
 
         todoTextInput.value = "";
@@ -52,5 +82,7 @@ export const UIUpdater = (() => {
     return {
         todosContainer,
         removedTodosContainer,
+        removeTodoFromTodosContainer,
+        addTodoFromDeletedTodos,
     };
 })();
