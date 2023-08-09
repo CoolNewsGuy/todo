@@ -1,5 +1,4 @@
 import { UIUpdater } from "../DOM.js";
-import { addTodo, removeTodo, removedTodosDivs } from "../script.js";
 
 export default function Todo(todoText) {
     const todoDiv = document.createElement("div");
@@ -12,20 +11,12 @@ export default function Todo(todoText) {
     checkMarkDiv.className = "check-mark";
     todoTextPara.className = "todo-text";
 
-    todoCheckboxDiv.addEventListener("click", () => {
+    todoCheckboxDiv.addEventListener("click", (e) => {
         if (!todoCheckboxDiv.classList.contains("todo-checked")) {
-            todoCheckboxDiv.classList.add("todo-checked");
-            UIUpdater.todosContainer.removeChild(todoDiv);
-            UIUpdater.removedTodosContainer.append(todoDiv);
-            removeTodo(todoDiv);
-            return;
+            UIUpdater.removeTodoFromTodosContainer(e);
+        } else {
+            UIUpdater.addTodoFromDeletedTodos(e);
         }
-
-        todoCheckboxDiv.classList.remove("todo-checked");
-        removedTodosDivs.splice(removedTodosDivs.indexOf(todoDiv), 1);
-        addTodo(todoDiv);
-        UIUpdater.removedTodosContainer.removeChild(todoDiv);
-        UIUpdater.todosContainer.append(todoDiv);
     });
 
     todoTextPara.innerText = todoText;
