@@ -29,9 +29,6 @@ export const UIUpdater = (() => {
         let todoCheckboxDiv = event.target.closest(".todo-checkbox");
         let todoDiv = todoCheckboxDiv.closest(".todo");
 
-        console.log(todoDiv);
-        console.log(todoCheckboxDiv);
-
         todoCheckboxDiv.classList.add("todo-checked");
         UIUpdater.todosContainer.removeChild(todoDiv);
         UIUpdater.removedTodosContainer.append(todoDiv);
