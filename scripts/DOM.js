@@ -1,11 +1,14 @@
 import Todo from "./components/Todo.js";
 import { addTodo, todos } from "./script.js";
 
-const UIUpdater = (() => {
+export const UIUpdater = (() => {
     let todosContainer = document.querySelector(".todos-container");
     let todoTextInput = document.querySelector(".new-todo-text");
     let noTodoErrorElement = document.querySelector(".no-todo-error");
     let trashBin = document.querySelector(".trash-bin");
+    let removedTodosContainer = trashBin.querySelector(
+        ".removed-todos-container"
+    );
     const addBtn = document.querySelector("#todo-adder-btn");
     const trashIcon = document.querySelector(".trash-icon");
 
@@ -45,4 +48,9 @@ const UIUpdater = (() => {
 
     addBtn.addEventListener("click", __addToTodosContainer);
     trashIcon.addEventListener("click", __toggleTrashBin);
+
+    return {
+        todosContainer,
+        removedTodosContainer,
+    };
 })();
