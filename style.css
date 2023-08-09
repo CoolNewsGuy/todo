@@ -12,6 +12,7 @@ body {
     justify-content: center;
     gap: 50px;
     align-items: center;
+    position: relative;
 }
 
 .todos-container {
@@ -133,5 +134,17 @@ form button {
     border-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    cursor: pointer;
+}
+
+/* trash */
+.trash-icon {
+    position: absolute;
+    width: 50px;
+    padding: 10px;
+    top: 15px;
+    right: 25px;
+    background: #fff;
+    border-radius: 10px;
     cursor: pointer;
 }
