@@ -33,7 +33,6 @@ export const UIUpdater = (() => {
         UIUpdater.todosContainer.removeChild(todoDiv);
         UIUpdater.removedTodosContainer.append(todoDiv);
         removeTodoFromTodosDivs(todoDiv);
-        return;
     }
 
     function addTodoFromDeletedTodos(event) {
