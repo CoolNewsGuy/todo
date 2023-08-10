@@ -1,5 +1,6 @@
 import Todo from "./components/Todo.js";
 import {
+    addTodoToRemovedTodosDivs,
     addTodoToTodosDivs,
     removeTodoFromTodosDivs,
     removedTodosDivs,
@@ -72,8 +73,34 @@ export const UIUpdater = (() => {
         }
     }
 
+    function __getTodosFromLocalStorage() {
+        let todosTexts = localStorage.getItem("todosTexts");
+        let removedTodosTexts = localStorage.getItem("removedTodosTexts");
+
+        if (todosTexts) {
+            JSON.parse(todosTexts).forEach((text) => {
+                addTodoToTodosDivs(Todo(text));
+            });
+
+            todosDivs.forEach((todoDiv) => {
+                todosContainer.appendChild(todoDiv);
+            });
+        }
+
+        if (removedTodosTexts) {
+            JSON.parse(removedTodosTexts).forEach((text) => {
+                addTodoToRemovedTodosDivs(Todo(text, true));
+            });
+
+            removedTodosDivs.forEach((todoDiv) => {
+                removedTodosContainer.appendChild(todoDiv);
+            });
+        }
+    }
+
     addBtn.addEventListener("click", __addToTodosContainer);
     trashIcon.addEventListener("click", __toggleTrashBin);
+    window.addEventListener("load", __getTodosFromLocalStorage);
 
     return {
         todosContainer,
