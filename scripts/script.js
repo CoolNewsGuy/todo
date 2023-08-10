@@ -15,6 +15,11 @@ export function removeTodoFromTodosDivs(todoDiv) {
     storeTodosInLocalStorage();
 }
 
+// when getting removed todos from local storage
+export function addTodoToRemovedTodosDivs(todoDiv) {
+    removedTodosDivs.push(todoDiv);
+}
+
 function storeTodosInLocalStorage() {
     localStorage.setItem(
         "todosTexts",
