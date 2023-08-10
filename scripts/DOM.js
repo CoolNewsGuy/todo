@@ -18,14 +18,6 @@ export const UIUpdater = (() => {
     const addBtn = document.querySelector("#todo-adder-btn");
     const trashIcon = document.querySelector(".trash-icon");
 
-    function refreshTodosContainer() {
-        todosContainer.innerHTML = "";
-
-        todosDivs.forEach((todoDiv) => {
-            todosContainer.append(todoDiv);
-        });
-    }
-
     function removeTodoFromTodosContainer(event) {
         let todoCheckboxDiv = event.target.closest(".todo-checkbox");
         let todoDiv = todoCheckboxDiv.closest(".todo");
